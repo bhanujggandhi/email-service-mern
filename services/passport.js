@@ -2,8 +2,21 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
+const { use } = require('passport');
 
 const User = mongoose.model('users');
+
+//SerializeUser take user who is trying to login and turn it into a cookie and store it in the browser.
+passport.serializeUser((user, done) => {
+  done(null, user.id);
+});
+
+//deserializeUser take id find it in the database and give it to the browser.
+passport.deserializeUser((id, done) => {
+  User.findOne({ id }).then((user) => {
+    done(null, user);
+  });
+});
 
 passport.use(
   new GoogleStrategy(
