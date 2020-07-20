@@ -13,7 +13,7 @@ passport.serializeUser((user, done) => {
 
 //deserializeUser take id find it in the database and give it to the browser.
 passport.deserializeUser((id, done) => {
-  User.findOne({ id }).then((user) => {
+  User.findById(id).then((user) => {
     done(null, user);
   });
 });
