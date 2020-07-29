@@ -1,5 +1,7 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const FacebookStrategy = require('passport-facebook').Strategy;
+const GithubStartegy = require('passport-github').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const { use } = require('passport');
@@ -34,6 +36,29 @@ passport.use(
         } else {
           // We do not have any user with given id. Create one
           new User({ googleId: profile.id }).save().then((user) => {
+            done(null, user);
+          });
+        }
+      });
+    }
+  )
+);
+
+passport.use(
+  new GithubStartegy(
+    {
+      clientID: keys.githubClientID,
+      clientSecret: keys.githubCLientSecret,
+      callbackURL: '/auth/github/callback',
+    },
+    (accessToken, refreshToken, profile, done) => {
+      User.findOne({ githubID: profile.id }).then((existingUser) => {
+        if (existingUser) {
+          // We already have a record for given id
+          done(null, existingUser);
+        } else {
+          // We do not have any user with given id. Create one
+          new User({ githubID: profile.id }).save().then((user) => {
             done(null, user);
           });
         }
