@@ -1,7 +1,33 @@
 import React from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
+
+const Header = () => {
+  return <h2>Header</h2>;
+};
+const Dashborad = () => {
+  return <h2>Dashboard</h2>;
+};
+const SurveyNew = () => {
+  return <h2>Survey New</h2>;
+};
+const Landing = () => {
+  return <h2>Landing</h2>;
+};
 
 const App = () => {
-  return <div>Hi there!</div>;
+  return (
+    <div>
+      <BrowserRouter>
+        <div>
+          <Header />
+          <Route path='/' exact component={Landing}></Route>
+          <Route path='/surveys' exact component={Dashborad}></Route>
+          <Route path='/surveys/new' component={SurveyNew}></Route>
+          <Route path=''>404</Route>
+        </div>
+      </BrowserRouter>
+    </div>
+  );
 };
 
 export default App;
