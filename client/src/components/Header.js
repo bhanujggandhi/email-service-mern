@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 class Header extends Component {
+  renderContent() {
+    switch (this.props.auth) {
+      case null:
+        return;
+      case false:
+        return (
+          <div>
+            <li>
+              <a href='/auth/google'>Login with google</a>
+            </li>
+            <li>
+              <a href='/auth/github'>Login with github</a>
+            </li>
+          </div>
+        );
+      default:
+        return (
+          <li>
+            <a href='/api/logout'>Logout</a>
+          </li>
+        );
+    }
+  }
+
   render() {
     return (
       <nav>
@@ -9,9 +34,7 @@ class Header extends Component {
             Emaily
           </a>
           <ul id='nav-mobile' className='right hide-on-med-and-down'>
-            <li>
-              <a href='/login'>Login with google</a>
-            </li>
+            {this.renderContent()}
           </ul>
         </div>
       </nav>
@@ -19,4 +42,8 @@ class Header extends Component {
   }
 }
 
-export default Header;
+const mapStateToProps = ({ auth }) => {
+  return { auth };
+};
+
+export default connect(mapStateToProps)(Header);
