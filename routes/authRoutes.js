@@ -15,13 +15,25 @@ module.exports = (app) => {
     })
   );
 
-  app.get('/auth/github/callback', passport.authenticate('github'));
+  app.get(
+    '/auth/github/callback',
+    passport.authenticate('github'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 
-  app.get('/auth/google/callback', passport.authenticate('google'));
+  app.get(
+    '/auth/google/callback',
+    passport.authenticate('google'),
+    (req, res) => {
+      res.redirect('/surveys');
+    }
+  );
 
   app.get('/api/logout', (req, res) => {
     req.logout();
-    res.send(req.user);
+    res.redirect('/');
   });
 
   app.get('/api/current_user', (req, res) => {

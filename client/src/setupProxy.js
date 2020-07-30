@@ -7,13 +7,11 @@ module.exports = function (app) {
   app.use(
     createProxyMiddleware('/auth/github', {
       target: 'http://localhost:5000',
-      changeOrigin: true,
     })
   );
   app.use(
     createProxyMiddleware('/api/*', {
       target: 'http://localhost:5000',
-      changeOrigin: true,
     })
   );
 };
