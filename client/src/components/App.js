@@ -1,5 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
+
 import Header from './Header';
 
 const Dashborad = () => {
@@ -12,20 +15,26 @@ const Landing = () => {
   return <h2>Landing</h2>;
 };
 
-const App = () => {
-  return (
-    <div className='container'>
-      <BrowserRouter>
-        <div>
-          <Header />
-          <Route path='/' exact component={Landing}></Route>
-          <Route path='/surveys' exact component={Dashborad}></Route>
-          <Route path='/surveys/new' component={SurveyNew}></Route>
-          <Route path=''>404</Route>
-        </div>
-      </BrowserRouter>
-    </div>
-  );
-};
+class App extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
 
-export default App;
+  render() {
+    return (
+      <div className='container'>
+        <BrowserRouter>
+          <div>
+            <Header />
+            <Route path='/' exact component={Landing}></Route>
+            <Route path='/surveys' exact component={Dashborad}></Route>
+            <Route path='/surveys/new' component={SurveyNew}></Route>
+            <Route path=''>404</Route>
+          </div>
+        </BrowserRouter>
+      </div>
+    );
+  }
+}
+
+export default connect(null, actions)(App);

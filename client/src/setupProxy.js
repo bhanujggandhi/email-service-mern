@@ -5,6 +5,15 @@ module.exports = function (app) {
     createProxyMiddleware('/auth/google', { target: 'http://localhost:5000' })
   );
   app.use(
-    createProxyMiddleware('/auth/github', { target: 'http://localhost:5000' })
+    createProxyMiddleware('/auth/github', {
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    createProxyMiddleware('/api/*', {
+      target: 'http://localhost:5000',
+      changeOrigin: true,
+    })
   );
 };
