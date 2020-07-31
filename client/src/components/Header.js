@@ -10,19 +10,19 @@ class Header extends Component {
         return;
       case false:
         return [
-          <li>
+          <li key='1'>
             <a href='/auth/google'>Login with google</a>
           </li>,
-          <li>
+          <li key='2'>
             <a href='/auth/github'>Login with github</a>
           </li>,
         ];
       default:
         return [
-          <li>
+          <li key='3'>
             <Payments />
           </li>,
-          <li>
+          <li key='4'>
             <a href='/api/logout'>Logout</a>
           </li>,
         ];
@@ -32,7 +32,7 @@ class Header extends Component {
   render() {
     return (
       <nav>
-        <div className='nav-wrapper green'>
+        <div className='nav-wrapper'>
           <Link
             to={this.props.auth ? '/surveys' : '/'}
             className='left brand-logo'
