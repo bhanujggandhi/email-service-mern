@@ -1528,10 +1528,10 @@ sendgrid-rest@^2.3.0:
     core-js "^3.5.0"
     dotenv "^4.0.0"
 
-sendgrid@^5.2.3:
-  version "5.2.3"
-  resolved "https://registry.yarnpkg.com/sendgrid/-/sendgrid-5.2.3.tgz#37cd28ddd93fca2d3fa7dda10a323b1f43ffecfc"
-  integrity sha512-FD7oR9TbJFUew1p0Vw9JX0wBetDyq634LzylSXz4n9+hwaf+6a9dNloZl8CcjpsX4NuEc3HJanTN4GjDwNyi4A==
+sendgrid@5.1.2:
+  version "5.1.2"
+  resolved "https://registry.yarnpkg.com/sendgrid/-/sendgrid-5.1.2.tgz#21f1da0ce2e5eb11785e183a3860c6774ab0f829"
+  integrity sha1-IfHaDOLl6xF4Xhg6OGDGd0qw+Ck=
   dependencies:
     async.ensureasync "^0.5.2"
     async.queue "^0.5.2"
