@@ -5,10 +5,8 @@ import * as actions from '../actions';
 
 import Header from './Header';
 import Landing from './Landing';
+import Dashboard from './Dashboard';
 
-const Dashborad = () => {
-  return <h2>Dashboard</h2>;
-};
 const SurveyNew = () => {
   return <h2>Survey New</h2>;
 };
@@ -25,7 +23,7 @@ class App extends Component {
           <div>
             <Header />
             <Route path='/' exact component={Landing}></Route>
-            <Route path='/surveys' exact component={Dashborad}></Route>
+            <Route path='/surveys' exact component={Dashboard}></Route>
             <Route path='/surveys/new' exact component={SurveyNew}></Route>
           </div>
         </BrowserRouter>
