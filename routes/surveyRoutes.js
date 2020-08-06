@@ -22,6 +22,12 @@ module.exports = (app) => {
     });
 
     //Send email!
-    const mailer = new Mailer(survey, surveyTemplate(survey));
+    Mailer(survey, surveyTemplate(survey))
+      .then(() => {
+        console.log('Jeet gya bhai tu');
+      })
+      .catch((err) => {
+        console.log('Nai haar gya \n', err);
+      });
   });
 };
