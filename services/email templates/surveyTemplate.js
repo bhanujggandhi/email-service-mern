@@ -189,6 +189,21 @@ module.exports = (survey) => {
                                        Hello there! It seems like you recently used our xyz service
                                     </td>
                                  </tr>
+                                 <tr>
+                                 <td class="res-center" style="text-align: center; color: #607080; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.4px; line-height: 23px; word-break: break-word" data-color="M2 Paragraph 1" data-size="M2 Paragraph 1" data-max="26" data-min="6">
+                                       <h4>We would like your input</h4>
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                 <td class="res-center" style="text-align: center; color: #607080; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.4px; line-height: 23px; word-break: break-word" data-color="M2 Paragraph 1" data-size="M2 Paragraph 1" data-max="26" data-min="6">
+                                       Please answer the following question
+                                    </td>
+                                 </tr>
+                                 <tr>
+                                 <td class="res-center" style="text-align: center; color: #607080; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.4px; line-height: 23px; word-break: break-word" data-color="M2 Paragraph 1" data-size="M2 Paragraph 1" data-max="26" data-min="6">
+                                       ${survey.body}
+                                    </td>
+                                 </tr>
                                  <!-- paragraph end -->
                                  <tr>
                                     <td height="23" style="font-size:0px">&nbsp;</td>
@@ -196,10 +211,10 @@ module.exports = (survey) => {
                                  <!-- link -->
                                  <tr>
                                     <td class="res-center" style="text-align: center;">
-                                    <a href="http:localhost:3000" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
+                                    <a href="http://localhost:3000/" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
                                     Yes
                                     </a>
-                                      <a href="http:localhost:3000" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
+                                      <a href="http://localhost:3000" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
                                        No
                                        </a>
                                     </td>
