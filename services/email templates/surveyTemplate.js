@@ -214,10 +214,10 @@ module.exports = (survey) => {
                                  <tr>
                                     <td class="res-center" style="text-align: center;">
                                     <a href="${keys.redirectDomain}/api/surveys/feedback" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
-                                    Yes
+                                    YES
                                     </a>
                                       <a href="${keys.redirectDomain}/api/surveys/feedback" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
-                                       No
+                                       NO
                                        </a>
                                     </td>
                                  </tr>
