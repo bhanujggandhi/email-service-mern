@@ -1,3 +1,5 @@
+const keys = require('../../config/keys');
+
 module.exports = (survey) => {
   return `
   <div data-template-type="html" style="height: auto; padding-bottom: 149px;" class="ui-sortable align: center">
@@ -211,10 +213,10 @@ module.exports = (survey) => {
                                  <!-- link -->
                                  <tr>
                                     <td class="res-center" style="text-align: center;">
-                                    <a href="http://localhost:3000/" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
+                                    <a href="${keys.redirectDomain}/api/surveys/feedback" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
                                     Yes
                                     </a>
-                                      <a href="http://localhost:3000" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
+                                      <a href="${keys.redirectDomain}/api/surveys/feedback" style="color: #00bb9d; font-family: 'Nunito', Arial, Sans-serif; font-size: 16px; letter-spacing: 0.7px; text-decoration: none; word-break: break-word;" data-color="M2 Link 1" data-size="M2 Link 1" data-max="26" data-min="6">
                                        No
                                        </a>
                                     </td>
