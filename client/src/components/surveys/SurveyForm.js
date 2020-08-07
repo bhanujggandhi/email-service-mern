@@ -2,8 +2,16 @@
 
 import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
+import SurveyField from './SurveyField';
 
 class SurveyForm extends Component {
+  renderFields() {
+    return (
+      <div>
+        <Field type='text' name='title' component={SurveyField} />
+      </div>
+    );
+  }
   render() {
     return (
       <div>
@@ -12,7 +20,7 @@ class SurveyForm extends Component {
           // handleSubmit takes a function which is automatically called when form is submitted
           onSubmit={this.props.handleSubmit((values) => console.log(values))}
         >
-          <Field type='text' name='surveyTitle' component='input' />
+          {this.renderFields()}
           <button type='submit'>Submit</button>
         </form>
       </div>
