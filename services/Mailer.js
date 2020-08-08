@@ -7,7 +7,7 @@ module.exports = async ({ subject, recipients, body }, content) => {
   const formattedRecipients = recipients.map(({ email }) => email);
   const msg = {
     to: formattedRecipients,
-    from: 'emaily@bhanujgandhi.tech',
+    from: 'no-reply@bhanujgandhi.tech',
     subject: subject,
     html: content,
   };
