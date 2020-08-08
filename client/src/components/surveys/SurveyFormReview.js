@@ -4,6 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
 import * as actions from '../../actions';
+import { withRouter } from 'react-router-dom';
 
 const SurveyFormReview = (props) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
@@ -26,7 +27,7 @@ const SurveyFormReview = (props) => {
         Back
       </button>
       <button
-        onClick={() => props.submitSurvey(props.formValues)}
+        onClick={() => props.submitSurvey(props.formValues, props.history)}
         className='green btn-flat white-text right'
       >
         Send Survey
@@ -42,6 +43,6 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.surveyForm.values };
 };
 
-export default connect(mapStateToProps, actions)(SurveyFormReview);
+export default connect(mapStateToProps, actions)(withRouter(SurveyFormReview));
 
 //Second argument to connect funtion is mapDispatchToProps, by passing actions object.. it will map all the actions in it to the props
