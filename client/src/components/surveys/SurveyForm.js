@@ -6,33 +6,11 @@ import { reduxForm, Field } from 'redux-form';
 import SurveyField from './SurveyField';
 import { Link } from 'react-router-dom';
 import validateEmails from '../../utils/validateEmails';
-
-const FIELDS = [
-  {
-    label: 'Survey Title',
-    name: 'title',
-    noValueError: 'Please provide a title for your survey!',
-  },
-  {
-    label: 'Subject Line',
-    name: 'subject',
-    noValueError: 'A subject is required to send emails :)',
-  },
-  {
-    label: 'Email Body',
-    name: 'body',
-    noValueError: 'Please provide a body to your survey email!',
-  },
-  {
-    label: 'Recipients List',
-    name: 'emails',
-    noValueError: 'Please provide atleast one email address!',
-  },
-];
+import formFields from './formFields';
 
 class SurveyForm extends Component {
   renderFields() {
-    return _.map(FIELDS, ({ label, name }) => {
+    return _.map(formFields, ({ label, name }) => {
       return (
         <Field
           key={name}
@@ -71,7 +49,7 @@ const validate = (values) => {
 
   errors.emails = validateEmails(values.emails || '');
 
-  _.each(FIELDS, ({ name, noValueError }) => {
+  _.each(formFields, ({ name, noValueError }) => {
     if (!values[name]) {
       errors[name] = noValueError;
     }
@@ -83,4 +61,5 @@ const validate = (values) => {
 export default reduxForm({
   validate,
   form: 'surveyForm',
+  destroyOnUnmount: false,
 })(SurveyForm);
