@@ -3,6 +3,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
+import * as actions from '../../actions';
 
 const SurveyFormReview = (props) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
@@ -18,8 +19,18 @@ const SurveyFormReview = (props) => {
     <div>
       <h5>Please confirm your entries</h5>
       {reviewFields}
-      <button className='yellow darken-3 btn-flat' onClick={props.onCancel}>
+      <button
+        className='yellow darken-3 white-text btn-flat'
+        onClick={props.onCancel}
+      >
         Back
+      </button>
+      <button
+        onClick={() => props.submitSurvey(props.formValues)}
+        className='green btn-flat white-text right'
+      >
+        Send Survey
+        <i className='material-icons right'>email</i>
       </button>
     </div>
   );
@@ -31,4 +42,6 @@ const mapStateToProps = (state) => {
   return { formValues: state.form.surveyForm.values };
 };
 
-export default connect(mapStateToProps)(SurveyFormReview);
+export default connect(mapStateToProps, actions)(SurveyFormReview);
+
+//Second argument to connect funtion is mapDispatchToProps, by passing actions object.. it will map all the actions in it to the props
