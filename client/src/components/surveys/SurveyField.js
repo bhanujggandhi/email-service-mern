@@ -9,8 +9,10 @@ const SurveyField = ({ input, label, meta: { error, touched } }) => {
   return (
     <div>
       <label>{label}</label>
-      <input {...input} />
-      {touched && error}
+      <input {...input} style={{ marginBottom: '5px' }} />
+      <div className='red-text' style={{ marginBottom: '20px' }}>
+        {touched && error}
+      </div>
     </div>
   );
   //{...input} means we are spreading input object. It is equivalent to onBlur={input.onBlur} and so on.
