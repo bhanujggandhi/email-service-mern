@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 
@@ -21,11 +21,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Header />
-            <Route
-              path='/'
-              exact
-              render={() => (!auth ? <Redirect to='/surveys' /> : <Landing />)}
-            ></Route>
+            <Route path='/' exact component={Landing}></Route>
             <Route path='/surveys' component={Dashboard} exact></Route>
             <Route path='/surveys/new' exact component={SurveyNew}></Route>
           </div>

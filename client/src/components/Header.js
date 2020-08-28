@@ -46,7 +46,7 @@ class Header extends Component {
       <Navbar bg='danger' variant='light' expand='lg'>
         <Navbar.Brand>
           <Link
-            style={{ textDecoration: 'none', color: '#fff', fontSize: '2rem' }}
+            style={{ textDecoration: 'none', color: '#fff' }}
             to={this.props.auth ? '/surveys' : '/'}
           >
             FeedBack Service
