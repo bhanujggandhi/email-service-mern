@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Navbar, Nav } from 'react-bootstrap';
 import Payments from './Payments';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   renderContent() {
@@ -11,10 +12,14 @@ class Header extends Component {
       case false:
         return [
           <li key='1'>
-            <a href='/auth/google'>Login with google</a>
+            <Nav.Link style={{ color: '#fff' }} active href='/auth/google'>
+              Login with Google
+            </Nav.Link>
           </li>,
           <li key='2'>
-            <a href='/auth/github'>Login with github</a>
+            <Nav.Link style={{ color: '#fff' }} active href='/auth/github'>
+              Login with Github
+            </Nav.Link>
           </li>,
         ];
       default:
@@ -23,10 +28,14 @@ class Header extends Component {
             <Payments />
           </li>,
           <li key='5' style={{ margin: '0 10px' }}>
-            Credits: {this.props.auth.credits}
+            <Navbar.Text style={{ color: '#fff' }}>
+              Credits: {this.props.auth.credits}
+            </Navbar.Text>
           </li>,
           <li key='4'>
-            <a href='/api/logout'>Logout</a>
+            <Nav.Link active style={{ color: '#fff' }} href='/api/logout'>
+              Logout
+            </Nav.Link>
           </li>,
         ];
     }
@@ -34,19 +43,20 @@ class Header extends Component {
 
   render() {
     return (
-      <nav>
-        <div className='nav-wrapper'>
+      <Navbar bg='danger' variant='light' expand='lg'>
+        <Navbar.Brand>
           <Link
+            style={{ textDecoration: 'none', color: '#fff', fontSize: '2rem' }}
             to={this.props.auth ? '/surveys' : '/'}
-            className='left brand-logo'
           >
-            Emaily
+            FeedBack Service
           </Link>
-          <ul id='nav-mobile' className='right hide-on-med-and-down'>
-            {this.renderContent()}
-          </ul>
-        </div>
-      </nav>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls='basic-navbar-nav' />
+        <Navbar.Collapse id='basic-navbar-nav'>
+          <Nav className='ml-auto'>{this.renderContent()}</Nav>
+        </Navbar.Collapse>
+      </Navbar>
     );
   }
 }

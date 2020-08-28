@@ -1,38 +1,42 @@
 // SurveyFormReview shows users their form inputs for review
+// import 'materialize-css/dist/css/materialize.min.css';
 import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 import formFields from './formFields';
 import * as actions from '../../actions';
 import { withRouter } from 'react-router-dom';
+import { Form, Button } from 'react-bootstrap';
+import { EnvelopeFill } from 'react-bootstrap-icons';
 
 const SurveyFormReview = (props) => {
   const reviewFields = _.map(formFields, ({ name, label }) => {
     return (
-      <div key={name}>
-        <label>{label}</label>
-        <div>{props.formValues[name]}</div>
-      </div>
+      <fieldset disabled>
+        <Form.Group key={name}>
+          <Form.Label htmlFor='TextInput'>{label}</Form.Label>
+          <Form.Control id='TextInput' value={props.formValues[name]} />
+        </Form.Group>
+      </fieldset>
     );
   });
 
   return (
     <div>
-      <h5>Please confirm your entries</h5>
+      <h4 style={{ marginTop: '20px' }}>Please confirm your entries</h4>
       {reviewFields}
-      <button
-        className='yellow darken-3 white-text btn-flat'
-        onClick={props.onCancel}
-      >
+      <Button variant='warning' onClick={props.onCancel}>
         Back
-      </button>
-      <button
+      </Button>
+
+      <Button
+        variant='success'
         onClick={() => props.submitSurvey(props.formValues, props.history)}
-        className='green btn-flat white-text right'
+        className='float-right'
       >
+        <EnvelopeFill style={{ marginRight: '5px' }} />
         Send Survey
-        <i className='material-icons right'>email</i>
-      </button>
+      </Button>
     </div>
   );
 };

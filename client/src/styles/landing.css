@@ -1,0 +1,23 @@
+.box-layout {
+  align-items: center;
+  background: url('../assets/bg4.png');
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  /* width: 100vw; */
+}
+
+.box-layout__box {
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 3px;
+  text-align: center;
+  padding: 3.2rem 1.6rem;
+  width: 25rem;
+  color: white;
+}
+
+.box-layout__title {
+  margin: 0 0 1.6rem 0;
+  line-height: 1;
+}

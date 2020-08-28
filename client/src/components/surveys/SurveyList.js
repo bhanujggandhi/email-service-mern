@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { fetchSurveys } from '../../actions';
+import { Card } from 'react-bootstrap';
 
 class SurveyList extends Component {
   componentDidMount() {
@@ -10,19 +11,22 @@ class SurveyList extends Component {
   renderSurveys() {
     return this.props.surveys.reverse().map((survey) => {
       return (
-        <div className='card blue-grey darken-1' key={survey._id}>
-          <div className='card-content white-text'>
-            <span className='card-title'>{survey.title}</span>
-            <p>{survey.body}</p>
-            <p className='right'>
+        <Card
+          bg='dark'
+          key={survey._id}
+          style={{ width: '100%', margin: '1rem auto' }}
+          text='white'
+        >
+          <Card.Body>
+            <Card.Title>{survey.title}</Card.Title>
+            <Card.Text>{survey.body}</Card.Text>
+            <Card.Subtitle className='mb-2 text-muted float-right'>
               Sent On: {new Date(survey.dateSent).toLocaleDateString()}
-            </p>
-          </div>
-          <div className='card-action'>
-            <a>Yes: {survey.yes}</a>
-            <a>No: {survey.no}</a>
-          </div>
-        </div>
+            </Card.Subtitle>
+            <Card.Link>Yes: {survey.yes}</Card.Link>
+            <Card.Link>No: {survey.no}</Card.Link>
+          </Card.Body>
+        </Card>
       );
     });
   }
