@@ -64,6 +64,7 @@ $secondary-color: #fff;
 @media (min-width: 768px) {
   .process {
     display: inline-block;
+    list-style: none;
 
     &__item {
       width: 49%;
@@ -77,6 +78,7 @@ $secondary-color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    list-style: none;
 
     &__item {
       width: 100%;
