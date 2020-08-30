@@ -7,6 +7,7 @@ import Header from './Header';
 import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
+import HelpPage from './HelpPage';
 
 class App extends Component {
   componentDidMount() {
@@ -15,11 +16,10 @@ class App extends Component {
 
   render() {
     const { auth } = this.props;
-    console.log(auth);
     return (
       <div className='container'>
         <BrowserRouter>
-          <div>
+          <>
             <Header />
             <Route
               path='/'
@@ -42,7 +42,8 @@ class App extends Component {
               }
               exact
             ></Route>
-          </div>
+            <Route path='/help' component={HelpPage}></Route>
+          </>
         </BrowserRouter>
       </div>
     );

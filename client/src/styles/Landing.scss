@@ -9,7 +9,7 @@
 }
 
 .box-layout__box {
-  background: rgba(0, 0, 0, 0.85);
+  background: fade-out(#000, .15);
   border-radius: 3px;
   text-align: center;
   padding: 3.2rem 1.6rem;

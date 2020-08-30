@@ -1,5 +1,6 @@
 import React from 'react';
-import '../styles/landing.css';
+import { Link } from 'react-router-dom';
+import '../styles/Landing.scss';
 
 const Landing = () => {
   return (
@@ -21,6 +22,14 @@ const Landing = () => {
         >
           Login with Github
         </a>
+        <br />
+        <Link
+          className='btn btn-warning'
+          style={{ textDecoration: 'none', color: '#000' }}
+          to='/help'
+        >
+          Help?
+        </Link>
       </div>
     </div>
   );

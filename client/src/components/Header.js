@@ -21,6 +21,16 @@ class Header extends Component {
               Login with Github
             </Nav.Link>
           </li>,
+          <li key='7'>
+            <Nav.Link>
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to='/help'
+              >
+                Help?
+              </Link>
+            </Nav.Link>
+          </li>,
         ];
       default:
         return [
@@ -33,6 +43,16 @@ class Header extends Component {
             </Navbar.Text>
           </li>,
           <li key='4'>
+            <Nav.Link>
+              <Link
+                style={{ textDecoration: 'none', color: '#fff' }}
+                to='/help'
+              >
+                Help?
+              </Link>
+            </Nav.Link>
+          </li>,
+          <li key='8'>
             <Nav.Link active style={{ color: '#fff' }} href='/api/logout'>
               Logout
             </Nav.Link>
