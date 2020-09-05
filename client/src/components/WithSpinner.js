@@ -4,7 +4,7 @@ import '../styles/WithSpinner.scss';
 
 const WithSpinner = (WrappedComponent) => {
   const Spinner = ({ auth, ...otherProps }) => {
-    return auth === null ? (
+    return auth === null || false ? (
       <div className='spinner-overlay'>
         <div className='spinner-container'></div>
       </div>
