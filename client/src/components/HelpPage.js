@@ -15,7 +15,7 @@ const HelpPage = () => {
       <HelpItem
         number={2}
         title='Add Credits'
-        subtitle='You will need credits to use this applications. Hit the Add Credits button to Pay. Its just 100 bucks for 5 credits. (You can send 1 survey from 1 credit. Dont worry you dont have to pay real money. Just use test card to test this application)'
+        subtitle='You will need credits to use this application. Hit the Add Credits button to Pay. Its just 100 bucks for 5 credits. (You can send 1 survey from 1 credit. Dont worry you dont have to pay real money. Just use test card to test this application)'
       />
       <HelpItem
         number={3}

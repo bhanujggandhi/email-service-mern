@@ -8,19 +8,27 @@ import Landing from './Landing';
 import Dashboard from './Dashboard';
 import SurveyNew from './surveys/SurveyNew';
 import HelpPage from './HelpPage';
+import WithSpinner from './WithSpinner';
+
+const DasboardWithSpinner = WithSpinner(Dashboard);
 
 class App extends Component {
+  state = {
+    loading: true,
+  };
+
   componentDidMount() {
     this.props.fetchUser();
+    this.setState({ loading: false });
   }
 
   render() {
     const { auth } = this.props;
     return (
-      <div className='container'>
-        <BrowserRouter>
-          <>
-            <Header />
+      <BrowserRouter>
+        <>
+          <Header />
+          <div className='container'>
             <Route
               path='/'
               render={() =>
@@ -30,8 +38,12 @@ class App extends Component {
             ></Route>
             <Route
               path='/surveys'
-              render={() =>
-                auth === false ? <Redirect to='/' /> : <Dashboard />
+              render={(props) =>
+                auth === false ? (
+                  <Redirect to='/' />
+                ) : (
+                  <DasboardWithSpinner auth={auth} {...props} />
+                )
               }
               exact
             ></Route>
@@ -43,9 +55,9 @@ class App extends Component {
               exact
             ></Route>
             <Route path='/help' component={HelpPage}></Route>
-          </>
-        </BrowserRouter>
-      </div>
+          </div>
+        </>
+      </BrowserRouter>
     );
   }
 }
